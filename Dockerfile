@@ -19,5 +19,5 @@ EXPOSE 6722
 
 # Start the app
 CMD [ "npm", "start" ]
-
+#Exposing port
 EXPOSE 4000
