@@ -1,23 +1,20 @@
-# Base image
+# Specify the base image
 FROM node:18-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Install app dependencies
-COPY package.json ./
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Bundle app source
+# Copy the application code
 COPY . .
 
-# Build TypeScript project
-RUN npm run build
+# Expose the application port
+EXPOSE 3000
 
-# Expose port number
-EXPOSE 6722
-
-# Start the app
-CMD [ "npm", "start" ]
-#Exposing port
-EXPOSE 4000 22
+# Start the application
+CMD ["npm", "start"]
